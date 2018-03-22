@@ -34,6 +34,13 @@ namespace IntegratorSource.Sql
 
                 // set the destination table name
                 bulkCopy.DestinationTableName = tableName;
+
+
+                //Column mapping
+                foreach (var field in typeof(Product).GetFields())
+                    bulkCopy.ColumnMappings.Add(field.Name, field.Name);
+                
+
                 connection.Open();
 
                 // Create temp product table

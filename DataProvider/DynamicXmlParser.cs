@@ -57,7 +57,16 @@ namespace IntegratorSource.DataProvider
                     if (TargetNodes != null && TargetNodes.Count >= item.Value.SourceNodeIndex)
                         AttrValue = TargetNodes[item.Value.SourceNodeIndex - 1].InnerText.Trim();
 
-                    p.GetType().GetField(item.Value.TargetAttribute).SetValue(p, AttrValue);
+                    // Do not assign if it is null
+                    if (string.IsNullOrWhiteSpace(AttrValue))
+                        continue;
+
+                    if (p.GetType().GetField(item.Value.TargetAttribute).FieldType.Name == "Int32")
+                        p.GetType().GetField(item.Value.TargetAttribute).SetValue(p, int.Parse(AttrValue));
+                    else if (p.GetType().GetField(item.Value.TargetAttribute).FieldType.Name == "Double")
+                        p.GetType().GetField(item.Value.TargetAttribute).SetValue(p, Convert.ToDouble(AttrValue, new CultureInfo("en-US")));
+                    else
+                        p.GetType().GetField(item.Value.TargetAttribute).SetValue(p, AttrValue);
                 }
                 /* Assign Product Attributes -- END */
 
@@ -121,7 +130,16 @@ namespace IntegratorSource.DataProvider
                             if (TargetNodes != null && TargetNodes.Count >= item.Value.SourceNodeIndex)
                                 AttrValue = TargetNodes[item.Value.SourceNodeIndex - 1].InnerText.Trim();
 
-                            subProduct.GetType().GetField(item.Value.TargetAttribute).SetValue(subProduct, AttrValue);
+                            // Do not assign if it is null
+                            if (string.IsNullOrWhiteSpace(AttrValue))
+                                continue;
+
+                            if (subProduct.GetType().GetField(item.Value.TargetAttribute).FieldType.Name == "Int32")
+                                subProduct.GetType().GetField(item.Value.TargetAttribute).SetValue(subProduct, int.Parse(AttrValue));
+                            else if (subProduct.GetType().GetField(item.Value.TargetAttribute).FieldType.Name == "Double")
+                                subProduct.GetType().GetField(item.Value.TargetAttribute).SetValue(subProduct, Convert.ToDouble(AttrValue, new CultureInfo("en-US")));
+                            else
+                                subProduct.GetType().GetField(item.Value.TargetAttribute).SetValue(subProduct, AttrValue);
                         }
 
                         if (!Result.ContainsKey(subProduct.SKU))
