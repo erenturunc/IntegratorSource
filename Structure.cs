@@ -103,6 +103,19 @@ namespace IntegratorSource
         public double AED = -1;
     }
 
+    public class XmlMapItem
+    {
+        public int XmlMappingID;
+        public int XmlMappingConfigurationID;
+        public string DataSourceName;
+        public string ProductNode;
+        public string SubProductNode;
+        public string SourceNodeName;
+        public int SourceNodeIndex;
+        public string TargetAttribute;
+        public string TransformationType;
+    }
+
     public static class LogHelper
     {
         public static Logger LogWriter = LogManager.GetCurrentClassLogger();

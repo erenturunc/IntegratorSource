@@ -49,7 +49,7 @@ namespace IntegratorSource
         internal static string ReadFromUri(string providerProductsXmlUri, string provider)
         {
             string folder = "tmp";
-            string filePath = folder + "/" + provider + DateTime.Now.ToString("yyyyMMddHHmmss");
+            string filePath = folder + "/" + provider + DateTime.Now.ToString("yyyyMMddHHmmss") + ".dat";
 
             if (!Directory.Exists(folder))
                 Directory.CreateDirectory(folder);

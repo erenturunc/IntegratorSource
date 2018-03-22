@@ -11,3 +11,13 @@ c:\users\erent\source\repos\MarketPlaceIntegrationEngineV2\IntegratorSource\obj\
 c:\users\erent\source\repos\MarketPlaceIntegrationEngineV2\IntegratorSource\obj\Debug\IntegratorSource.csproj.CopyComplete
 c:\users\erent\source\repos\MarketPlaceIntegrationEngineV2\IntegratorSource\obj\Debug\IntegratorSource.exe
 c:\users\erent\source\repos\MarketPlaceIntegrationEngineV2\IntegratorSource\obj\Debug\IntegratorSource.pdb
+C:\Users\eren.turunc\GitHub\IntegratorSource\bin\Debug\NLog.config
+C:\Users\eren.turunc\GitHub\IntegratorSource\bin\Debug\IntegratorSource.exe.config
+C:\Users\eren.turunc\GitHub\IntegratorSource\bin\Debug\IntegratorSource.exe
+C:\Users\eren.turunc\GitHub\IntegratorSource\bin\Debug\IntegratorSource.pdb
+C:\Users\eren.turunc\GitHub\IntegratorSource\bin\Debug\Newtonsoft.Json.xml
+C:\Users\eren.turunc\GitHub\IntegratorSource\bin\Debug\NLog.xml
+C:\Users\eren.turunc\GitHub\IntegratorSource\obj\Debug\IntegratorSource.csprojResolveAssemblyReference.cache
+C:\Users\eren.turunc\GitHub\IntegratorSource\obj\Debug\IntegratorSource.csproj.CoreCompileInputs.cache
+C:\Users\eren.turunc\GitHub\IntegratorSource\obj\Debug\IntegratorSource.exe
+C:\Users\eren.turunc\GitHub\IntegratorSource\obj\Debug\IntegratorSource.pdb

@@ -70,6 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataProvider\DynamicXmlParser.cs" />
     <Compile Include="DataProvider\MerrySee.cs" />
     <Compile Include="DataProvider\Sahinler.cs" />
     <Compile Include="DataProvider\Vixson.cs" />

@@ -25,7 +25,7 @@ namespace IntegratorSource
             Config.ReadConfig(Member, Provider);
 
             Dictionary<string, Product> SourceProductList = new Dictionary<string, Product>();
-            if (Provider == "vixson")
+            /*if (Provider == "vixson")
             {
                 string DataXML = Util.ReadFromUri(Config.ProviderProductsXmlUri, Provider);
                 SourceProductList = DataProvider.Vixson.ParseXML2Products(DataXML);
@@ -39,7 +39,11 @@ namespace IntegratorSource
             {
                 string DataXML = Util.ReadFromUri(Config.ProviderProductsXmlUri, Provider);
                 SourceProductList = DataProvider.MerrySee.ParseXML2Products(DataXML);
-            }
+            }*/
+
+            string DataXML = Util.ReadFromUri(Config.ProviderProductsXmlUri, Provider);
+            Dictionary<int, XmlMapItem> XmlMapping = Sql.AppDataProvider.Get_XmlMapping(Config.MemberID, Config.ProviderID);
+            SourceProductList = DataProvider.DynamicXmlParser.ParseXML2Products(DataXML, XmlMapping);
 
             ProductDataProvider.UpsertProducts(SourceProductList);
 
