@@ -7,3 +7,16 @@
 *.csproj
 *.sln
 *.xml
+.vs/IntegratorSource/v15/.suo
+*.lock
+*.ide
+*.nupkg
+*.md
+*.ps1
+*.xsd
+*.user
+*.config
+*.exe
+*.pdb
+*.config
+App.config
