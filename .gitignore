@@ -20,3 +20,5 @@
 *.pdb
 *.config
 App.config
+*.config
+*.exe

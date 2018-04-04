@@ -26,11 +26,11 @@ namespace IntegratorSource
 
             Dictionary<string, Product> SourceProductList = new Dictionary<string, Product>();
 
-            StreamReader reader = new StreamReader(@"c:\users\eren.turunc\desktop\brangoxml.xml", Encoding.GetEncoding("iso-8859-9"));
-            string DataXML = reader.ReadToEnd();
-            reader.Close();
+            //StreamReader reader = new StreamReader(@"c:\users\erent\desktop\brangoxml.xml", Encoding.GetEncoding("iso-8859-9"));
+            //string DataXML = reader.ReadToEnd();
+            //reader.Close();
 
-            //string DataXML = Util.ReadFromUri(Config.ProviderProductsXmlUri, Provider);
+            string DataXML = Util.ReadFromUri(Config.ProviderProductsXmlUri, Member, Provider);
             Dictionary<int, XmlMapItem> XmlMapping = Sql.AppDataProvider.Get_XmlMapping(Config.MemberID, Config.ProviderID);
             SourceProductList = DataProvider.DynamicXmlParser.ParseXML2Products(DataXML, XmlMapping);
 

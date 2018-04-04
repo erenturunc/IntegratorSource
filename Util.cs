@@ -46,9 +46,9 @@ namespace IntegratorSource
             return responseString;
         }
 
-        internal static string ReadFromUri(string providerProductsXmlUri, string provider)
+        internal static string ReadFromUri(string providerProductsXmlUri, string member, string provider)
         {
-            string folder = "tmp";
+            string folder = "tmp" + "/" + member;
             string filePath = folder + "/" + provider + DateTime.Now.ToString("yyyyMMddHHmmss") + ".dat";
 
             if (!Directory.Exists(folder))
@@ -57,7 +57,7 @@ namespace IntegratorSource
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(providerProductsXmlUri);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             Stream resStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(resStream);
+            StreamReader reader = new StreamReader(resStream, Encoding.GetEncoding("iso-8859-9"));
             string DataXML = reader.ReadToEnd();
 
             StreamWriter writer = new StreamWriter(filePath);
@@ -65,7 +65,6 @@ namespace IntegratorSource
             writer.Close();
 
             return DataXML;
-
         }
 
         public static CurrencyRates ParseOpenExchangeRateCurrencies(string Path)

@@ -62,6 +62,19 @@ namespace IntegratorSource.Sql
                 cmd = new SqlCommand(deleteQuery, connection);
                 cmd.ExecuteNonQuery();
 
+                //Delete duplicate SKUs
+                string deleteDuplicateQuery = @"DELETE FROM Product WHERE ProductID NOT IN
+	                                                (	
+		                                                SELECT RowId FROM (SELECT MIN(ProductID) as RowId, SKU 
+		                                                FROM Product
+                                                        WHERE MemberID = {0} AND ProviderID = {1}
+                                                        GROUP BY SKU) KeepRows
+                                                    ) 
+	                                                AND MemberID = {0} AND ProviderID = {1}";
+                deleteDuplicateQuery = string.Format(deleteDuplicateQuery, Config.MemberID, Config.ProviderID);
+                cmd = new SqlCommand(deleteDuplicateQuery, connection);
+                cmd.ExecuteNonQuery();
+
                 connection.Close();
             }
             // reset
