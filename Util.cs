@@ -55,6 +55,9 @@ namespace IntegratorSource
                 Directory.CreateDirectory(folder);
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(providerProductsXmlUri);
+            request.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36";
+            request.Headers.Add("upgrade-insecure-requests", "1");
+
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             Stream resStream = response.GetResponseStream();
             StreamReader reader = new StreamReader(resStream, Encoding.GetEncoding("iso-8859-9"));

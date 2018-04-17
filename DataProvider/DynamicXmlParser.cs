@@ -120,11 +120,12 @@ namespace IntegratorSource.DataProvider
                 /* Assign Product Attributes -- END */
 
                 /* Find SubProduct Nodes -- START */
+                bool SubProductNodeExists = (string.IsNullOrWhiteSpace(XmlMapping.First().Value.SubProductNode)) ? false : true;
                 string[] VariantHiearchy = XmlMapping.First().Value.SubProductNode.Split('/');
                 XmlNodeList VariantNodes = null;
                 XmlNode MiddleLevelNode = null;
 
-                if (VariantHiearchy.Length > 1)
+                if (SubProductNodeExists && VariantHiearchy.Length > 1)
                 {
                     MiddleLevelNode = pNode.SelectNodes(VariantHiearchy[0])[0];
                     for (int i = 1; i < VariantHiearchy.Length; i++)
@@ -137,7 +138,7 @@ namespace IntegratorSource.DataProvider
 
                     }
                 }
-                else
+                else if (SubProductNodeExists)
                 {
                     VariantNodes = pNode.SelectNodes(VariantHiearchy[0]);
                 }
