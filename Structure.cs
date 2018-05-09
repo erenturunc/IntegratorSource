@@ -16,6 +16,7 @@ namespace IntegratorSource
         public static int MemberID;
         public static int ProviderID;
         public static CurrencyRates Rates;
+        public static Encoding DataSourceEncoding = Encoding.UTF8;
 
         public static void ReadConfig(string Member, string Provider)
         {
@@ -29,6 +30,8 @@ namespace IntegratorSource
                 MemberID = int.Parse(ConfigKeyValues["memberid"]);
             if (ConfigKeyValues.ContainsKey("providerid"))
                 ProviderID = int.Parse(ConfigKeyValues["providerid"]);
+            if (ConfigKeyValues.ContainsKey("datasourceencoding"))
+                DataSourceEncoding = Encoding.GetEncoding(ConfigKeyValues["datasourceencoding"]);
 
             Config.Rates = Util.ParseOpenExchangeRateCurrencies(CurrencyRatesJsonFilePath);
         }

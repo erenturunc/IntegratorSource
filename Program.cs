@@ -30,7 +30,7 @@ namespace IntegratorSource
             //string DataXML = reader.ReadToEnd();
             //reader.Close();
 
-            string DataXML = Util.ReadFromUri(Config.ProviderProductsXmlUri, Member, Provider);
+            string DataXML = Util.ReadFromUri(Config.ProviderProductsXmlUri, Member, Provider, Config.DataSourceEncoding);
             Dictionary<int, XmlMapItem> XmlMapping = Sql.AppDataProvider.Get_XmlMapping(Config.MemberID, Config.ProviderID);
             SourceProductList = DataProvider.DynamicXmlParser.ParseXML2Products(DataXML, XmlMapping);
 

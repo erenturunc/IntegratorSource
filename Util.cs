@@ -46,7 +46,7 @@ namespace IntegratorSource
             return responseString;
         }
 
-        internal static string ReadFromUri(string providerProductsXmlUri, string member, string provider)
+        internal static string ReadFromUri(string providerProductsXmlUri, string member, string provider, Encoding encoding)
         {
             string folder = "tmp" + "/" + member;
             string filePath = folder + "/" + provider + DateTime.Now.ToString("yyyyMMddHHmmss") + ".dat";
@@ -60,7 +60,7 @@ namespace IntegratorSource
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             Stream resStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(resStream, Encoding.GetEncoding("iso-8859-9"));
+            StreamReader reader = new StreamReader(resStream, encoding);
             string DataXML = reader.ReadToEnd();
 
             StreamWriter writer = new StreamWriter(filePath);
