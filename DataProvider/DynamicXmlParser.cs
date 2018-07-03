@@ -113,7 +113,7 @@ namespace IntegratorSource.DataProvider
                     else if (p.GetType().GetField(item.Value.TargetAttribute).FieldType.Name == "Int32")
                         p.GetType().GetField(item.Value.TargetAttribute).SetValue(p, int.Parse(AttrValue));
                     else if (p.GetType().GetField(item.Value.TargetAttribute).FieldType.Name == "Double")
-                        p.GetType().GetField(item.Value.TargetAttribute).SetValue(p, Convert.ToDouble(AttrValue, new CultureInfo("en-US")));
+                        p.GetType().GetField(item.Value.TargetAttribute).SetValue(p, Convert.ToDouble(AttrValue.Replace(',','.'), new CultureInfo("en-US")));
                     else
                         p.GetType().GetField(item.Value.TargetAttribute).SetValue(p, AttrValue);
                 }
@@ -192,7 +192,7 @@ namespace IntegratorSource.DataProvider
                             else if (subProduct.GetType().GetField(item.Value.TargetAttribute).FieldType.Name == "Int32")
                                 subProduct.GetType().GetField(item.Value.TargetAttribute).SetValue(subProduct, int.Parse(AttrValue));
                             else if (subProduct.GetType().GetField(item.Value.TargetAttribute).FieldType.Name == "Double")
-                                subProduct.GetType().GetField(item.Value.TargetAttribute).SetValue(subProduct, Convert.ToDouble(AttrValue, new CultureInfo("en-US")));
+                                subProduct.GetType().GetField(item.Value.TargetAttribute).SetValue(subProduct, Convert.ToDouble(AttrValue.Replace(',','.'), new CultureInfo("en-US")));
                             else
                                 subProduct.GetType().GetField(item.Value.TargetAttribute).SetValue(subProduct, AttrValue);
                         }
