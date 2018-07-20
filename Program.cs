@@ -34,6 +34,18 @@ namespace IntegratorSource
             Dictionary<int, XmlMapItem> XmlMapping = Sql.AppDataProvider.Get_XmlMapping(Config.MemberID, Config.ProviderID);
             SourceProductList = DataProvider.DynamicXmlParser.ParseXML2Products(DataXML, XmlMapping);
 
+            // Buranin aslinda gereksiz olmasi lazim, sarhosken yazdin
+            //var SKUDic = SourceProductList.Select(a => a.Value.SKU).Distinct().ToDictionary(a => a, b => b);
+            //Dictionary<string, string> illegalSKUs = new Dictionary<string, string>();
+            //foreach (var item in SKUDic)
+            //{
+            //    if (SourceProductList.Where(a => a.Value.SKU == item.Key).Count() > 1)
+            //        illegalSKUs.Add(item.Key, item.Key);
+            //}
+            //SourceProductList = SourceProductList.Where(a => !illegalSKUs.ContainsKey(a.Value.SKU)).ToDictionary(a => a.Key, b => b.Value);
+            //yazdigin kodu sikeyim
+
+
             ProductDataProvider.UpsertProducts(SourceProductList);
 
         }
